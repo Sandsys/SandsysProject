@@ -28,7 +28,7 @@
     <talend.pigudf.groupid>org.example.sandsysproject.pigudf</talend.pigudf.groupid>
     <talend.routine.groupid>org.example.sandsysproject.code</talend.routine.groupid>
     <current.bundle.resources.dir>${basedir}/src/main/bundle-resources</current.bundle.resources.dir>
-    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=UTF-8 </talend.job.jvmargs>
+    <talend.job.jvmargs>-Xms256M -Xmx1024M </talend.job.jvmargs>
     <talend.job.context>Default</talend.job.context>
     <talend.job.stat>true</talend.job.stat>
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
@@ -58,6 +58,11 @@
       <version>1.2.17</version>
     </dependency>
     <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.12</version>
+    </dependency>
+    <dependency>
       <groupId>org.talend.libraries</groupId>
       <artifactId>mysql-connector-java-5.1.30-bin</artifactId>
       <version>6.0.0</version>
@@ -66,6 +71,16 @@
       <groupId>org.talend.libraries</groupId>
       <artifactId>org.talend.dataquality.parser</artifactId>
       <version>6.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>slf4j-log4j12-1.7.2</artifactId>
+      <version>6.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>talend-codegen-utils</artifactId>
+      <version>0.25.3</version>
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
@@ -245,6 +260,9 @@
     </profile>
     <profile>
       <id>include-running-log4j</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <properties>
         <log4j.running.dir>${current.resources.dir}/</log4j.running.dir>
       </properties>
